@@ -9,8 +9,7 @@ def logs_stat():
     collection of the 'logs' database."""
     client = MongoClient('mongodb://localhost:27017/')
     logs = client.logs.nginx
-
-    return logs.count_documents()
+    return logs.count_documents({})
 
 
 def main():
