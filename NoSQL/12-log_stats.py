@@ -4,7 +4,7 @@
 from pymongo import MongoClient
 
 
-def client():
+def logs_stat():
     """script that provides some stats about Nginx logs stored in MongoDB:"""
     client = MongoClient('mongodb://localhost:27017/')
     db = client['logs']
