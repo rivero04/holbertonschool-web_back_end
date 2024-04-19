@@ -4,12 +4,12 @@
 from pymongo import MongoClient
 
 
-def logs_stat():
+def logs_stat(filter: dict = {}):
     """Counts and returns the total number of documents in the 'nginx'
     collection of the 'logs' database."""
     client = MongoClient('mongodb://localhost:27017/')
     logs = client.logs.nginx
-    return logs.count_documents({})
+    return logs.count_documents(filter)
 
 
 def main():
@@ -22,3 +22,7 @@ def main():
     print(f"\tmethod PATCH: {logs_stat({'method': 'PATCH'})}")
     print(f"\tmethod DELETE: {logs_stat({'method': 'DELETE'})}")
     print(f"{logs_stat({'method': 'GET', 'path': '/status'})} status check")
+
+
+if __name__ == "__main__":
+    main()
