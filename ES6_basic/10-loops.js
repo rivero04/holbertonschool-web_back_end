@@ -5,3 +5,4 @@ export default function appendToEachArrayValue(array, appendString) {
   }
   return list;
 }
+    
